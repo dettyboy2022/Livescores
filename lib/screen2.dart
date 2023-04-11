@@ -21,20 +21,30 @@ class PageInterest extends StatefulWidget {
 }
 
 class _PageInterestState extends State<PageInterest> {
+  List sports = [
+    {'image': 'assets/soccer.png', 'text': 'Soccer'},
+    {'image': 'assets/basketball.png', 'text': 'Basketball'},
+    {'image': 'assets/football.png', 'text': 'Football'},
+    {'image': 'assets/baseball.png', 'text': 'Baseball'},
+    {'image': 'assets/tennis.png', 'text': 'Tennis'},
+    {'image': 'assets/volly.png', 'text': 'Volley'},
+    {'image': 'assets/pingpong.png', 'text': 'Ping Pong'},
+    {'image': 'assets/badminton.png', 'text': 'Badminton'}
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF181829),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 140),
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 100),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(
               'What sport do\n you Interest?',
               style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 30,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 36,
                   color: Colors.white),
             ),
             const SizedBox(
@@ -42,30 +52,46 @@ class _PageInterestState extends State<PageInterest> {
             ),
             const Text(
               ' You can choose more than one',
-              style: TextStyle(color: Colors.grey),
+              style: TextStyle(color: Colors.grey, fontSize: 16),
             ),
             const SizedBox(
-              height: 15,
+              height: 20,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.vertical,
-              child: Container(
+              child: SizedBox(
                 height: 300,
                 child: GridView.builder(
                     shrinkWrap: true,
-                    itemCount: 8,
+                    itemCount: sports.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                            childAspectRatio: 1 / 2,
+                            childAspectRatio: 1,
                             crossAxisCount: 3,
-                            mainAxisSpacing: 10,
+                            mainAxisSpacing: 20,
                             crossAxisSpacing: 10),
                     itemBuilder: (context, index) {
-                      return Container(
-                        height: 20,
-                        width: 30,
-                        color: Colors.red,
-                        child: Image.asset('assets/soccer.png'),
+                      return Column(
+                        children: [
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: const Color(0xffF4A58A),
+                            ),
+                            padding: const EdgeInsets.all(30),
+                            child: Image.asset(
+                              sports[index]['image'],
+                            ),
+                          ),
+                          const SizedBox(height: 5),
+                          Text(
+                            sports[index]['text'],
+                            style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
                       );
                     }),
               ),
@@ -75,7 +101,9 @@ class _PageInterestState extends State<PageInterest> {
             ),
             ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15)),
+                    minimumSize: const Size(double.infinity, 50),
                     backgroundColor: const Color(0xFF246BFD)),
                 onPressed: () {
                   Navigator.push(
@@ -83,13 +111,21 @@ class _PageInterestState extends State<PageInterest> {
                       MaterialPageRoute(
                           builder: (context) => const HomeScreen()));
                 },
-                child: const Text('Continue')),
+                child: const Text(
+                  'Continue',
+                  style: TextStyle(fontSize: 17, fontWeight: FontWeight.w400),
+                )),
             const SizedBox(
-              height: 10,
+              height: 20,
             ),
-            const Text(
-              'Skip',
-              style: TextStyle(color: Colors.white),
+            const Center(
+              child: Text(
+                'Skip',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w400,
+                    fontSize: 18),
+              ),
             )
           ],
         ),

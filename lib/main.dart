@@ -194,23 +194,6 @@ class _MyHomePageState extends State<MyHomePage> {
                                           )
                                         ],
                                       ),
-                                      // Row(
-                                      //   // mainAxisAlignment:
-                                      //   //     MainAxisAlignment.spaceBetween,
-                                      //   children: [
-                                      //     CheckboxListTile(
-                                      //         value: isChecked,
-                                      //         onChanged: (value) {
-                                      //           setState(() {
-                                      //             isChecked = value!;
-                                      //           });
-                                      //         }),
-                                      //     // Text('Remember me'),
-                                      //     // Text(
-                                      //     //   'Forgot Password',
-                                      //     // ),
-                                      //   ],
-                                      // ),
                                       const SizedBox(
                                         height: 10,
                                       ),
