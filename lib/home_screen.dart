@@ -35,7 +35,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFF181829),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(20, 60, 20, 0),
+        padding: const EdgeInsets.fromLTRB(10, 60, 10, 0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -67,7 +67,15 @@ class _HomeScreenState extends State<HomeScreen> {
                   )
                 ],
               ),
-              Image.asset('assets/cards.png'),
+              Row(
+                children: [
+                  Expanded(
+                      child: Image.asset(
+                    'assets/cards.png',
+                    fit: BoxFit.fill,
+                  )),
+                ],
+              ),
               const SizedBox(
                 height: 25,
               ),
@@ -292,6 +300,41 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
+              const SizedBox(
+                height: 15,
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10),
+                  color: const Color(0xff222232),
+                ),
+                child: ListTile(
+                  leading: Image.asset('assets/sevilla.png'),
+                  title: const Text(
+                    'Sevilla  vs  Atletico',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 17,
+                        color: Colors.white),
+                  ),
+                  subtitle: const Text(
+                    '   0   -   0',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 17,
+                        color: Colors.white),
+                  ),
+                  trailing: const Text(
+                    'FT',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w700,
+                        fontSize: 17),
+                  ),
+                ),
+              ),
               ListTile(
                 leading: Image.asset('assets/premierleague.png'),
                 title: const Text(
@@ -354,9 +397,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: const Color(0xff222232),
                 ),
                 child: ListTile(
-                  leading: Image.asset('assets/arsenal.png'),
+                  leading: Image.asset('assets/manchester.png'),
                   title: const Text(
-                    '  Arsenal  vs  Aston Villa',
+                    'Man United  vs  Chelsea',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -364,7 +407,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white),
                   ),
                   subtitle: const Text(
-                    '3   -  2',
+                    '2  -  1',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -380,8 +423,19 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
               ),
-              const SizedBox(
-                height: 15,
+              ListTile(
+                leading: Image.asset('assets/uefa.png'),
+                title: const Text(
+                  'UEFA Champions League',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 17,
+                      color: Colors.white),
+                ),
+                trailing: const Icon(
+                  Icons.navigate_next,
+                  color: Colors.white,
+                ),
               ),
               Container(
                 decoration: BoxDecoration(
@@ -389,9 +443,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: const Color(0xff222232),
                 ),
                 child: ListTile(
-                  leading: Image.asset('assets/arsenal.png'),
+                  leading: Image.asset('assets/Bayern.png'),
                   title: const Text(
-                    '  Arsenal  vs  Aston Villa',
+                    'Juventus  vs  Bayern',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w700,
@@ -399,77 +453,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.white),
                   ),
                   subtitle: const Text(
-                    '3   -  2',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                        color: Colors.white),
-                  ),
-                  trailing: const Text(
-                    'FT',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xff222232),
-                ),
-                child: ListTile(
-                  leading: Image.asset('assets/arsenal.png'),
-                  title: const Text(
-                    '  Arsenal  vs  Aston Villa',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                        color: Colors.white),
-                  ),
-                  subtitle: const Text(
-                    '3   -  2',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                        color: Colors.white),
-                  ),
-                  trailing: const Text(
-                    'FT',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17),
-                  ),
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xff222232),
-                ),
-                child: ListTile(
-                  leading: Image.asset('assets/arsenal.png'),
-                  title: const Text(
-                    '  Arsenal  vs  Aston Villa',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                        color: Colors.white),
-                  ),
-                  subtitle: const Text(
-                    '3   -  2',
+                    '1  -  1',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                         fontWeight: FontWeight.w700,

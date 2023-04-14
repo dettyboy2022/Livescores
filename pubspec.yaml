@@ -78,6 +78,12 @@ flutter:
     - assets/realmadrid.png
     - assets/barcelona.png
     - assets/premierleague.png
+    - assets/manchester.png
+    - assets/Bayern.png
+    - assets/juventus.png
+    - assets/uefa.png
+    - assets/Atletico.png
+    - assets/sevilla.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see
