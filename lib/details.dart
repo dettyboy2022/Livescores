@@ -125,19 +125,52 @@ class Match extends StatefulWidget {
 }
 
 class _MatchState extends State<Match> {
-  var sta = [1, 2, 3, 4, 5, 6, 7];
-  var acc = [1, 2, 3, 4, 5, 6, 7];
-  var fig = [1, 2, 3, 4, 5, 6, 7];
+  var sta = ['8', '22', '42', '4', '8'];
+  var acc = ['shooting', 'Attacks', 'Possesion', 'Cards', 'Corners'];
+  var fig = ['12', '29', '58', '5', '7'];
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context, index) {
-      return const ListTile(
-          // leading: Text('8'),
-          // title: Text('Shooting'),
-          // trailing: Text('12'),
+    return ListView.builder(
+        itemCount: 5,
+        itemBuilder: (context, index) {
+          var stats = sta[index];
+          var accs = acc[index];
+          var figs = fig[index];
+          return Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      stats,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                    Text(
+                      accs,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    ),
+                    Text(
+                      figs,
+                      style: const TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18),
+                    )
+                  ],
+                ),
+              )
+            ],
           );
-    });
+        });
   }
 }
 
@@ -177,6 +210,13 @@ class LineUp extends StatelessWidget {
             Row(
               children: [
                 TextButton(
+                    style: ButtonStyle(
+                      shape: MaterialStatePropertyAll<OutlinedBorder>(
+                          RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10))),
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                          const Color(0xffF4A58A)),
+                    ),
                     onPressed: () {},
                     child: const Text(
                       'Arsenal',

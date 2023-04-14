@@ -482,13 +482,16 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: const Color(0xff222232),
+        // showUnselectedLabels: true,
+        // fixedColor: const Color(0xff246BFD),
+        // unselectedLabelStyle: const TextStyle(color: Colors.grey),
+        // unselectedItemColor: Colors.grey,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
           BottomNavigationBarItem(
               icon: Icon(Icons.table_chart_sharp), label: 'Standings'),
-          // BottomNavigationBarItem(icon: Icon(Icons.person),
-          //     label: 'Profile'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
         ],
       ),
     );
