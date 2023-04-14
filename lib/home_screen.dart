@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sports/details.dart';
 
 class Screen3 extends StatelessWidget {
   const Screen3({Key? key}) : super(key: key);
@@ -35,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       backgroundColor: const Color(0xFF181829),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 60, 10, 0),
+        padding: const EdgeInsets.fromLTRB(10, 50, 10, 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -356,35 +357,41 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.white,
                 ),
               ),
-              Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: const Color(0xff222232),
-                ),
-                child: ListTile(
-                  leading: Image.asset('assets/arsenal.png'),
-                  title: const Text(
-                    '  Arsenal  vs  Aston Villa',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                        color: Colors.white),
+              GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Details()));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    color: const Color(0xff222232),
                   ),
-                  subtitle: const Text(
-                    '3   -  2',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17,
-                        color: Colors.white),
-                  ),
-                  trailing: const Text(
-                    'FT',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w700,
-                        fontSize: 17),
+                  child: ListTile(
+                    leading: Image.asset('assets/arsenal.png'),
+                    title: const Text(
+                      '  Arsenal  vs  Aston Villa',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 17,
+                          color: Colors.white),
+                    ),
+                    subtitle: const Text(
+                      '3   -  2',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontWeight: FontWeight.w700,
+                          fontSize: 17,
+                          color: Colors.white),
+                    ),
+                    trailing: const Text(
+                      'FT',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.w700,
+                          fontSize: 17),
+                    ),
                   ),
                 ),
               ),
