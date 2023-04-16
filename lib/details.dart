@@ -132,11 +132,13 @@ class _MatchState extends State<Match> {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
+        shrinkWrap: true,
         itemCount: 5,
         itemBuilder: (context, index) {
           var stats = sta[index];
           var accs = acc[index];
           var figs = fig[index];
+
           return Column(
             children: [
               Padding(
@@ -167,7 +169,26 @@ class _MatchState extends State<Match> {
                     )
                   ],
                 ),
-              )
+              ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              //   children: const [
+              //     Text(
+              //       'Other Match',
+              //       style: TextStyle(
+              //           color: Colors.white,
+              //           fontSize: 18,
+              //           fontWeight: FontWeight.w700),
+              //     ),
+              //     Text(
+              //       'See all',
+              //       style: TextStyle(
+              //           color: Colors.grey,
+              //           fontSize: 13,
+              //           fontWeight: FontWeight.w700),
+              //     )
+              //   ],
+              // )
             ],
           );
         });
@@ -243,9 +264,6 @@ class LineUp extends StatelessWidget {
                 width: double.infinity,
               ),
             ),
-            const SizedBox(
-              height: 15,
-            ),
           ],
         ));
   }
@@ -256,6 +274,9 @@ class H2H extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      backgroundColor: Colors.red,
+      body: Column(),
+    );
   }
 }
