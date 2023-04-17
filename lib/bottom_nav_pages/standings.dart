@@ -9,7 +9,7 @@ class Standings extends StatelessWidget {
       body: Center(
           child: Text(
         'Standings',
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
+        style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
       )),
     );
   }

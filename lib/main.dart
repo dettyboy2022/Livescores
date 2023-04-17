@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Sports',
       theme: ThemeData(
+        fontFamily: 'RobotoCondensed',
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Sports'),
