@@ -27,17 +27,25 @@ class _ExploreState extends State<Explore> {
       // backgroundColor: const Color(0xff222232),
       backgroundColor: const Color(0xFF181829),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(5, 70, 5, 0),
+        padding: const EdgeInsets.fromLTRB(10, 80, 10, 0),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextField(
                 decoration: InputDecoration(
-                    border: OutlineInputBorder(
+                    filled: true,
+                    fillColor: const Color((0xff222232)),
+                    enabledBorder: OutlineInputBorder(
+                        borderSide: BorderSide.none,
                         borderRadius: BorderRadius.circular(10)),
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide.none,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                     hintText: 'Search for news, teams, match etc....',
-                    hintStyle: const TextStyle(color: Colors.grey),
+                    hintStyle:
+                        const TextStyle(color: Colors.grey, fontSize: 17),
                     prefixIcon: const Icon(
                       Icons.search,
                       color: Colors.grey,
@@ -86,13 +94,33 @@ class _ExploreState extends State<Explore> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Image.asset('assets/cards.png'),
-                    Image.asset('assets/cards.png'),
-                    Image.asset('assets/cards.png'),
-                    Image.asset('assets/cards.png'),
-                    Image.asset('assets/cards.png'),
+                    Stack(children: [
+                      Image.asset(
+                        'assets/liverpool.png',
+                        width: 400,
+                        height: 300,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      const Positioned(
+                          bottom: 100,
+                          child: Text(
+                            'Arsenal vs Aston Villa Prediction',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 27,
+                                fontWeight: FontWeight.bold),
+                          ))
+                    ]),
+                    const SizedBox(
+                      width: 20,
+                    ),
+                    Image.asset(
+                      'assets/news.png',
+                      width: 400,
+                      height: 300,
+                      fit: BoxFit.fitWidth,
+                    ),
                   ],
                 ),
               )
