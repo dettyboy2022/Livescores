@@ -89,6 +89,9 @@ flutter:
     - assets/Discovery.png
     - assets/Home.png
     - assets/Profile.png
+    - assets/lampard.png
+    - assets/news.png
+    - assets/saka.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

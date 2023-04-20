@@ -97,9 +97,9 @@ class _ProfileState extends State<Profile> {
                       const Divider(
                         color: Colors.grey,
                         height: 10,
-                        endIndent: 70,
+                        endIndent: 50,
                         indent: 70,
-                        thickness: 1,
+                        thickness: .5,
                       )
                     ],
                   );
