@@ -275,8 +275,22 @@ class H2H extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
-      body: Column(),
+      backgroundColor: const Color(0xFF181829),
+      body: Column(
+        children: const [
+          ListTile(
+            leading: Icon(Icons.person),
+            title: Text('Helllo'),
+            subtitle: Text('Welcome'),
+            // trailing: Row(
+            //   children: const [
+            //     Icon(Icons.percent),
+            //     Icon(Icons.percent),
+            //   ],
+            // ),
+          )
+        ],
+      ),
     );
   }
 }

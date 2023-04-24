@@ -55,17 +55,29 @@ class _ProfileState extends State<Profile> {
               children: [
                 ElevatedButton(
                     style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)),
                         backgroundColor: const Color(0xffF4A58A)),
                     onPressed: () {},
                     child: const Text('My Profile')),
                 const SizedBox(
                   width: 10,
                 ),
-                TextButton(onPressed: () {}, child: const Text('Activity')),
+                TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Activity',
+                      style: TextStyle(color: Colors.white),
+                    )),
                 const SizedBox(
                   width: 10,
                 ),
-                TextButton(onPressed: () {}, child: const Text('Settings'))
+                TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      'Settings',
+                      style: TextStyle(color: Colors.white),
+                    ))
               ],
             ),
             ListView.builder(

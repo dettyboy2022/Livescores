@@ -24,7 +24,6 @@ class _ExploreState extends State<Explore> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: const Color(0xff222232),
       backgroundColor: const Color(0xFF181829),
       body: Padding(
         padding: const EdgeInsets.fromLTRB(10, 80, 10, 0),

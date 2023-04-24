@@ -22,14 +22,46 @@ class PageInterest extends StatefulWidget {
 
 class _PageInterestState extends State<PageInterest> {
   List sports = [
-    {'image': 'assets/soccer.png', 'text': 'Soccer'},
-    {'image': 'assets/basketball.png', 'text': 'Basketball'},
-    {'image': 'assets/football.png', 'text': 'Football'},
-    {'image': 'assets/baseball.png', 'text': 'Baseball'},
-    {'image': 'assets/tennis.png', 'text': 'Tennis'},
-    {'image': 'assets/volly.png', 'text': 'Volley'},
-    {'image': 'assets/pingpong.png', 'text': 'Ping Pong'},
-    {'image': 'assets/badminton.png', 'text': 'Badminton'}
+    {
+      'image': 'assets/soccer.png',
+      'text': 'Soccer',
+      'color': const Color(0xffF4A58A)
+    },
+    {
+      'image': 'assets/basketball.png',
+      'text': 'Basketball',
+      'color': const Color(0xff222232)
+    },
+    {
+      'image': 'assets/football.png',
+      'text': 'Football',
+      'color': const Color(0xff222232)
+    },
+    {
+      'image': 'assets/baseball.png',
+      'text': 'Baseball',
+      'color': const Color(0xff222232)
+    },
+    {
+      'image': 'assets/tennis.png',
+      'text': 'Tennis',
+      'color': const Color(0xff222232)
+    },
+    {
+      'image': 'assets/volly.png',
+      'text': 'Volley',
+      'color': const Color(0xff222232)
+    },
+    {
+      'image': 'assets/pingpong.png',
+      'text': 'Ping Pong',
+      'color': const Color(0xff222232)
+    },
+    {
+      'image': 'assets/badminton.png',
+      'text': 'Badminton',
+      'color': const Color(0xff222232)
+    }
   ];
   @override
   Widget build(BuildContext context) {
@@ -75,9 +107,9 @@ class _PageInterestState extends State<PageInterest> {
                         children: [
                           Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(100),
-                              color: const Color(0xffF4A58A),
-                            ),
+                                borderRadius: BorderRadius.circular(100),
+                                // color: const Color(0xffF4A58A),
+                                color: sports[index]['color']),
                             padding: const EdgeInsets.all(30),
                             child: Image.asset(
                               sports[index]['image'],
