@@ -94,6 +94,13 @@ flutter:
     - assets/saka.png
     - assets/liverpool.png
     - assets/bilbao.png
+    - assets/manCity.png
+    - assets/liverlogo.png
+    - assets/chelsea.png
+    - assets/photo profile.png
+    - assets/saks.png
+    - assets/share.png
+    - assets/save.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

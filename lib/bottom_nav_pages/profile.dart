@@ -29,7 +29,7 @@ class _ProfileState extends State<Profile> {
             const CircleAvatar(
               radius: 50,
               backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage('assets/manchester.png'),
+              backgroundImage: AssetImage('assets/photo profile.png'),
             ),
             const SizedBox(
               height: 25,

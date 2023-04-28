@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sports/bottom_nav_pages/standingdetails.dart';
 
 class Standings extends StatelessWidget {
   const Standings({super.key});
@@ -31,25 +32,33 @@ class Standings extends StatelessWidget {
                         color: Colors.grey,
                       )),
                 ),
-                ListTile(
-                  leading: Image.asset('assets/laliga.png'),
-                  title: const Text(
-                    'La Liga',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w800),
-                  ),
-                  subtitle: const Text(
-                    'Spain',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 15,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  trailing: const Icon(
-                    Icons.navigate_next,
-                    color: Colors.white,
+                GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const StandingDetails()));
+                  },
+                  child: ListTile(
+                    leading: Image.asset('assets/laliga.png'),
+                    title: const Text(
+                      'La Liga',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w800),
+                    ),
+                    subtitle: const Text(
+                      'Spain',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w600),
+                    ),
+                    trailing: const Icon(
+                      Icons.navigate_next,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 Container(
@@ -66,13 +75,7 @@ class Standings extends StatelessWidget {
                     DataColumn(label: Text('Pts')),
                   ], rows: [
                     DataRow(cells: [
-                      // DataCell(Text('')),
-                      DataCell(Row(
-                        children: [
-                          Image.asset('assets/Atletico.png'),
-                          // Text('la ligo')
-                        ],
-                      )),
+                      DataCell(Image.asset('assets/Atletico.png')),
                       const DataCell(Text('2')),
                       const DataCell(Text('1')),
                       const DataCell(Text('6')),
@@ -104,6 +107,9 @@ class Standings extends StatelessWidget {
                       const DataCell(Text('32')),
                     ]),
                   ]),
+                ),
+                const SizedBox(
+                  height: 20,
                 ),
                 ListTile(
                   leading: Image.asset('assets/premierleague.png'),
@@ -140,10 +146,9 @@ class Standings extends StatelessWidget {
                     DataColumn(label: Text('Pts')),
                   ], rows: [
                     DataRow(cells: [
-                      // DataCell(Text('')),
                       DataCell(Row(
                         children: [
-                          Image.asset('assets/Atletico.png'),
+                          Image.asset('assets/manchester.png'),
                           // Text('la ligo')
                         ],
                       )),
@@ -154,7 +159,7 @@ class Standings extends StatelessWidget {
                       const DataCell(Text('38')),
                     ]),
                     DataRow(cells: [
-                      DataCell(Image.asset('assets/realmadrid.png')),
+                      DataCell(Image.asset('assets/liverlogo.png')),
                       const DataCell(Text('4')),
                       const DataCell(Text('3')),
                       const DataCell(Text('7')),
@@ -162,7 +167,7 @@ class Standings extends StatelessWidget {
                       const DataCell(Text('37')),
                     ]),
                     DataRow(cells: [
-                      DataCell(Image.asset('assets/barcelona.png')),
+                      DataCell(Image.asset('assets/manCity.png')),
                       const DataCell(Text('4')),
                       const DataCell(Text('4')),
                       const DataCell(Text('9')),
@@ -170,7 +175,7 @@ class Standings extends StatelessWidget {
                       const DataCell(Text('34')),
                     ]),
                     DataRow(cells: [
-                      DataCell(Image.asset('assets/sevilla.png')),
+                      DataCell(Image.asset('assets/chelsea.png')),
                       const DataCell(Text('8')),
                       const DataCell(Text('2')),
                       const DataCell(Text('10')),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sports/table.dart';
 
 class Explore extends StatefulWidget {
   const Explore({super.key});
@@ -13,11 +14,13 @@ class _ExploreState extends State<Explore> {
     'assets/news.png',
     'assets/saka.png',
     'assets/lampard.png',
+    'assets/bilbao.png',
   ];
   List news = [
     'Roumor Has it: Lampard`s position under threat,.... ',
     'Arteta sees "natural leader" Tierney as a future,',
     'Athletic Bilbao to appoint Marcelino as coach until, ...',
+    'Barcelona suffer too much late in games, says Ter Stegen',
     'Barcelona suffer too much late in games, says Ter Stegen'
   ];
 
@@ -55,7 +58,7 @@ class _ExploreState extends State<Explore> {
               ),
               ListView.builder(
                   shrinkWrap: true,
-                  itemCount: 4,
+                  itemCount: 5,
                   itemBuilder: (context, index) {
                     return ListTile(
                       contentPadding: const EdgeInsets.all(10),
@@ -94,31 +97,40 @@ class _ExploreState extends State<Explore> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    Stack(children: [
-                      Image.asset(
-                        'assets/liverpool.png',
-                        width: 400,
-                        height: 300,
-                        fit: BoxFit.fitWidth,
-                      ),
-                      const Positioned(
-                          bottom: 100,
-                          child: Text(
-                            'Arsenal vs Aston Villa Prediction',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 27,
-                                fontWeight: FontWeight.bold),
-                          ))
-                    ]),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LaligaTab()));
+                      },
+                      child: Stack(children: [
+                        Image.asset(
+                          'assets/news.png',
+                          width: 300,
+                          height: 200,
+                          fit: BoxFit.cover,
+                        ),
+                        const Positioned(
+                            bottom: 100,
+                            child: Text(
+                              'Arsenal vs Aston Villa\n Prediction',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 27,
+                                  fontWeight: FontWeight.bold),
+                            ))
+                      ]),
+                    ),
                     const SizedBox(
                       width: 20,
                     ),
                     Image.asset(
-                      'assets/news.png',
-                      width: 400,
-                      height: 300,
-                      fit: BoxFit.fitWidth,
+                      'assets/liverpool.png',
+                      width: 300,
+                      height: 200,
+                      fit: BoxFit.cover,
                     ),
                   ],
                 ),
