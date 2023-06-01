@@ -84,15 +84,15 @@ class _ExploreState extends State<Explore> {
                       title: Text(news[index],
                           style: const TextStyle(
                               color: Colors.white,
-                              fontSize: 18,
-                              fontWeight: FontWeight.w800)),
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600)),
                       subtitle: const Text(
                         '20 APRIL 2023',
                         style: TextStyle(
                             wordSpacing: 5,
                             color: Colors.grey,
                             fontWeight: FontWeight.w600,
-                            fontSize: 15),
+                            fontSize: 13),
                       ),
                       trailing: const Icon(
                         Iconsax.save_2,
@@ -104,8 +104,8 @@ class _ExploreState extends State<Explore> {
                 'Transfer News',
                 style: TextStyle(
                     color: Colors.white,
-                    fontSize: 25,
-                    fontWeight: FontWeight.w800),
+                    fontSize: 23,
+                    fontWeight: FontWeight.w600),
               ),
               const SizedBox(
                 height: 20,
