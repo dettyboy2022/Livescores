@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:sports/table.dart';
 
 class Explore extends StatefulWidget {
@@ -56,7 +57,20 @@ class _ExploreState extends State<Explore> {
               const SizedBox(
                 height: 20,
               ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Image.asset('assets/soccer.png'),
+                  Image.asset('assets/football.png'),
+                  Image.asset('assets/pingpong.png'),
+                  Image.asset('assets/volly.png'),
+                  Image.asset('assets/basketball.png'),
+                  Image.asset('assets/tennis.png'),
+                  Image.asset('assets/tennis.png'),
+                ],
+              ),
               ListView.builder(
+                  primary: false,
                   shrinkWrap: true,
                   itemCount: 5,
                   itemBuilder: (context, index) {
@@ -81,7 +95,7 @@ class _ExploreState extends State<Explore> {
                             fontSize: 15),
                       ),
                       trailing: const Icon(
-                        Icons.bookmark,
+                        Iconsax.save_2,
                         color: Colors.grey,
                       ),
                     );
@@ -92,6 +106,9 @@ class _ExploreState extends State<Explore> {
                     color: Colors.white,
                     fontSize: 25,
                     fontWeight: FontWeight.w800),
+              ),
+              const SizedBox(
+                height: 20,
               ),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
@@ -107,20 +124,22 @@ class _ExploreState extends State<Explore> {
                       child: Stack(children: [
                         Image.asset(
                           'assets/news.png',
-                          width: 300,
-                          height: 200,
+                          width: 400,
+                          height: 150,
                           fit: BoxFit.cover,
                         ),
-                        const Positioned(
-                            bottom: 100,
-                            child: Text(
-                              'Arsenal vs Aston Villa\n Prediction',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 27,
-                                  fontWeight: FontWeight.bold),
-                            ))
+                        const Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: Positioned(
+                              bottom: 50,
+                              child: Text(
+                                'Arsenal vs Aston Villa\n Prediction',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 27,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        )
                       ]),
                     ),
                     const SizedBox(
@@ -128,8 +147,8 @@ class _ExploreState extends State<Explore> {
                     ),
                     Image.asset(
                       'assets/liverpool.png',
-                      width: 300,
-                      height: 200,
+                      width: 400,
+                      height: 150,
                       fit: BoxFit.cover,
                     ),
                   ],

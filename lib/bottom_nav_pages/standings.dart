@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sports/bottom_nav_pages/standingdetails.dart';
+import 'package:sports/standingdetails.dart';
 
 class Standings extends StatelessWidget {
   const Standings({super.key});
@@ -66,47 +66,51 @@ class Standings extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     color: const Color((0xff222232)),
                   ),
-                  child: DataTable(columns: const [
-                    DataColumn(label: Text('Team')),
-                    DataColumn(label: Text('D')),
-                    DataColumn(label: Text('L')),
-                    DataColumn(label: Text('Ga')),
-                    DataColumn(label: Text('Gd')),
-                    DataColumn(label: Text('Pts')),
-                  ], rows: [
-                    DataRow(cells: [
-                      DataCell(Image.asset('assets/Atletico.png')),
-                      const DataCell(Text('2')),
-                      const DataCell(Text('1')),
-                      const DataCell(Text('6')),
-                      const DataCell(Text('23')),
-                      const DataCell(Text('38')),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Image.asset('assets/realmadrid.png')),
-                      const DataCell(Text('4')),
-                      const DataCell(Text('3')),
-                      const DataCell(Text('7')),
-                      const DataCell(Text('15')),
-                      const DataCell(Text('37')),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Image.asset('assets/barcelona.png')),
-                      const DataCell(Text('4')),
-                      const DataCell(Text('4')),
-                      const DataCell(Text('9')),
-                      const DataCell(Text('20')),
-                      const DataCell(Text('34')),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Image.asset('assets/sevilla.png')),
-                      const DataCell(Text('8')),
-                      const DataCell(Text('2')),
-                      const DataCell(Text('10')),
-                      const DataCell(Text('16')),
-                      const DataCell(Text('32')),
-                    ]),
-                  ]),
+                  child: DataTable(
+                      headingTextStyle: const TextStyle(color: Colors.white),
+                      dataTextStyle: const TextStyle(color: Colors.white),
+                      columns: const [
+                        DataColumn(label: Text('Team')),
+                        DataColumn(label: Text('D')),
+                        DataColumn(label: Text('L')),
+                        DataColumn(label: Text('Ga')),
+                        DataColumn(label: Text('Gd')),
+                        DataColumn(label: Text('Pts')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Image.asset('assets/Atletico.png')),
+                          const DataCell(Text('2')),
+                          const DataCell(Text('1')),
+                          const DataCell(Text('6')),
+                          const DataCell(Text('23')),
+                          const DataCell(Text('38')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Image.asset('assets/realmadrid.png')),
+                          const DataCell(Text('4')),
+                          const DataCell(Text('3')),
+                          const DataCell(Text('7')),
+                          const DataCell(Text('15')),
+                          const DataCell(Text('37')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Image.asset('assets/barcelona.png')),
+                          const DataCell(Text('4')),
+                          const DataCell(Text('4')),
+                          const DataCell(Text('9')),
+                          const DataCell(Text('20')),
+                          const DataCell(Text('34')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Image.asset('assets/sevilla.png')),
+                          const DataCell(Text('8')),
+                          const DataCell(Text('2')),
+                          const DataCell(Text('10')),
+                          const DataCell(Text('16')),
+                          const DataCell(Text('32')),
+                        ]),
+                      ]),
                 ),
                 const SizedBox(
                   height: 20,
@@ -137,52 +141,56 @@ class Standings extends StatelessWidget {
                     borderRadius: BorderRadius.circular(15),
                     color: const Color((0xff222232)),
                   ),
-                  child: DataTable(columns: const [
-                    DataColumn(label: Text('Team')),
-                    DataColumn(label: Text('D')),
-                    DataColumn(label: Text('L')),
-                    DataColumn(label: Text('Ga')),
-                    DataColumn(label: Text('Gd')),
-                    DataColumn(label: Text('Pts')),
-                  ], rows: [
-                    DataRow(cells: [
-                      DataCell(Row(
-                        children: [
-                          Image.asset('assets/manchester.png'),
-                          // Text('la ligo')
-                        ],
-                      )),
-                      const DataCell(Text('2')),
-                      const DataCell(Text('1')),
-                      const DataCell(Text('6')),
-                      const DataCell(Text('23')),
-                      const DataCell(Text('38')),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Image.asset('assets/liverlogo.png')),
-                      const DataCell(Text('4')),
-                      const DataCell(Text('3')),
-                      const DataCell(Text('7')),
-                      const DataCell(Text('15')),
-                      const DataCell(Text('37')),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Image.asset('assets/manCity.png')),
-                      const DataCell(Text('4')),
-                      const DataCell(Text('4')),
-                      const DataCell(Text('9')),
-                      const DataCell(Text('20')),
-                      const DataCell(Text('34')),
-                    ]),
-                    DataRow(cells: [
-                      DataCell(Image.asset('assets/chelsea.png')),
-                      const DataCell(Text('8')),
-                      const DataCell(Text('2')),
-                      const DataCell(Text('10')),
-                      const DataCell(Text('16')),
-                      const DataCell(Text('32')),
-                    ]),
-                  ]),
+                  child: DataTable(
+                      headingTextStyle: const TextStyle(color: Colors.white),
+                      dataTextStyle: const TextStyle(color: Colors.white),
+                      columns: const [
+                        DataColumn(label: Text('Team')),
+                        DataColumn(label: Text('D')),
+                        DataColumn(label: Text('L')),
+                        DataColumn(label: Text('Ga')),
+                        DataColumn(label: Text('Gd')),
+                        DataColumn(label: Text('Pts')),
+                      ],
+                      rows: [
+                        DataRow(cells: [
+                          DataCell(Row(
+                            children: [
+                              Image.asset('assets/manchester.png'),
+                              // Text('la ligo')
+                            ],
+                          )),
+                          const DataCell(Text('2')),
+                          const DataCell(Text('1')),
+                          const DataCell(Text('6')),
+                          const DataCell(Text('23')),
+                          const DataCell(Text('38')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Image.asset('assets/liverlogo.png')),
+                          const DataCell(Text('4')),
+                          const DataCell(Text('3')),
+                          const DataCell(Text('7')),
+                          const DataCell(Text('15')),
+                          const DataCell(Text('37')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Image.asset('assets/manCity.png')),
+                          const DataCell(Text('4')),
+                          const DataCell(Text('4')),
+                          const DataCell(Text('9')),
+                          const DataCell(Text('20')),
+                          const DataCell(Text('34')),
+                        ]),
+                        DataRow(cells: [
+                          DataCell(Image.asset('assets/chelsea.png')),
+                          const DataCell(Text('8')),
+                          const DataCell(Text('2')),
+                          const DataCell(Text('10')),
+                          const DataCell(Text('16')),
+                          const DataCell(Text('32')),
+                        ]),
+                      ]),
                 ),
               ],
             ),
