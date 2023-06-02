@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
-import 'bottom_nav_pages/home.dart';
-import 'bottom_nav_pages/explore.dart';
-import 'bottom_nav_pages/profile.dart';
-import 'bottom_nav_pages/standings.dart';
+import '../bottom_nav_pages/home.dart';
+import '../bottom_nav_pages/explore.dart';
+import '../bottom_nav_pages/profile.dart';
+import '../bottom_nav_pages/standings.dart';
 
 class Screen3 extends StatelessWidget {
   const Screen3({Key? key}) : super(key: key);
@@ -48,16 +49,36 @@ class _HomeScreenState extends State<HomeScreen> {
         elevation: 0,
         type: BottomNavigationBarType.fixed,
         backgroundColor: const Color(0xff222232),
-        showUnselectedLabels: false,
+        showSelectedLabels: true,
         fixedColor: const Color(0xff246BFD),
-        unselectedLabelStyle: const TextStyle(color: Colors.grey),
         unselectedItemColor: Colors.grey,
+        unselectedFontSize: 12,
+        selectedFontSize: 12,
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.table_chart_sharp), label: 'Standings'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile')
+              icon: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Iconsax.home),
+              ),
+              label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Iconsax.global_edit),
+              ),
+              label: 'Explore'),
+          BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Iconsax.trade5),
+              ),
+              label: 'Standings'),
+          BottomNavigationBarItem(
+              icon: Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(Iconsax.personalcard),
+              ),
+              label: 'Profile')
         ],
       ),
     );

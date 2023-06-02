@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sports/details.dart';
+import 'package:sports/screens/details.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});

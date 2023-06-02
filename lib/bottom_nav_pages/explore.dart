@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:sports/table.dart';
+import 'package:sports/screens/fixtures.dart';
+import 'package:sports/screens/table.dart';
 
 class Explore extends StatefulWidget {
   const Explore({super.key});
@@ -10,19 +11,36 @@ class Explore extends StatefulWidget {
 }
 
 class _ExploreState extends State<Explore> {
-  List images = [
-    'assets/lampard.png',
-    'assets/news.png',
-    'assets/saka.png',
-    'assets/lampard.png',
-    'assets/bilbao.png',
+  List content = [
+    {
+      'image': 'assets/lampard.png',
+      'text': 'Roumor Has it: Lampard`s position under threat,....'
+    },
+    {
+      'image': 'assets/news.png',
+      'text': 'Arteta sees "natural leader" Tierney as a future,'
+    },
+    {
+      'image': 'assets/saka.png',
+      'text': 'Athletic Bilbao to appoint Marcelino as coach until, ...'
+    },
+    {
+      'image': 'assets/lampard.png',
+      'text': 'Barcelona suffer too much late in games, says Ter Stegen'
+    },
+    {
+      'image': 'assets/bilbao.png',
+      'text': 'Barcelona suffer too much late in games, says Ter Stegen'
+    },
   ];
-  List news = [
-    'Roumor Has it: Lampard`s position under threat,.... ',
-    'Arteta sees "natural leader" Tierney as a future,',
-    'Athletic Bilbao to appoint Marcelino as coach until, ...',
-    'Barcelona suffer too much late in games, says Ter Stegen',
-    'Barcelona suffer too much late in games, says Ter Stegen'
+
+  List sports = [
+    'assets/soccer.png',
+    'assets/football.png',
+    'assets/pingpong.png',
+    'assets/volly.png',
+    'assets/basketball.png',
+    'assets/tennis.png'
   ];
 
   @override
@@ -57,51 +75,88 @@ class _ExploreState extends State<Explore> {
               const SizedBox(
                 height: 20,
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Image.asset('assets/soccer.png'),
-                  Image.asset('assets/football.png'),
-                  Image.asset('assets/pingpong.png'),
-                  Image.asset('assets/volly.png'),
-                  Image.asset('assets/basketball.png'),
-                  Image.asset('assets/tennis.png'),
-                  Image.asset('assets/tennis.png'),
-                ],
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: sports
+                      .map((e) => GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(20),
+                                color: Colors.grey,
+                              ),
+                              margin: const EdgeInsets.only(left: 10),
+                              width: 150,
+                              height: 50,
+                              child: Image.asset(e),
+                            ),
+                          ))
+                      .toList(),
+                ),
               ),
               ListView.builder(
                   primary: false,
                   shrinkWrap: true,
-                  itemCount: 5,
+                  itemCount: content.length,
                   itemBuilder: (context, index) {
-                    return ListTile(
-                      contentPadding: const EdgeInsets.all(10),
-                      leading: Image.asset(
-                        images[index],
-                        width: 120,
-                        fit: BoxFit.fitWidth,
-                      ),
-                      title: Text(news[index],
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600)),
-                      subtitle: const Text(
-                        '20 APRIL 2023',
-                        style: TextStyle(
-                            wordSpacing: 5,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13),
-                      ),
-                      trailing: const Icon(
-                        Iconsax.save_2,
-                        color: Colors.grey,
-                      ),
+                    return Column(
+                      children: content
+                          .map((e) => ListTile(
+                                contentPadding: const EdgeInsets.all(10),
+                                leading: Image.asset(
+                                  e['image'],
+                                  width: 120,
+                                  fit: BoxFit.fitWidth,
+                                ),
+                                title: Text(e['text'],
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w600)),
+                                subtitle: const Text(
+                                  '20 APRIL 2023',
+                                  style: TextStyle(
+                                      wordSpacing: 5,
+                                      color: Colors.grey,
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 13),
+                                ),
+                                trailing: const Icon(
+                                  Iconsax.save_2,
+                                  color: Colors.grey,
+                                ),
+                              ))
+                          .toList(),
                     );
+                    // return ListTile(
+                    //   contentPadding: const EdgeInsets.all(10),
+                    //   leading: Image.asset(
+                    //     images[index],
+                    //     width: 120,
+                    //     fit: BoxFit.fitWidth,
+                    //   ),
+                    //   title: Text(news[index],
+                    //       style: const TextStyle(
+                    //           color: Colors.white,
+                    //           fontSize: 16,
+                    //           fontWeight: FontWeight.w600)),
+                    //   subtitle: const Text(
+                    //     '20 APRIL 2023',
+                    //     style: TextStyle(
+                    //         wordSpacing: 5,
+                    //         color: Colors.grey,
+                    //         fontWeight: FontWeight.w600,
+                    //         fontSize: 13),
+                    //   ),
+                    //   trailing: const Icon(
+                    //     Iconsax.save_2,
+                    //     color: Colors.grey,
+                    //   ),
+                    // );
                   }),
               const Text(
-                'Transfer News',
+                'Trending News',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 23,
@@ -145,11 +200,33 @@ class _ExploreState extends State<Explore> {
                     const SizedBox(
                       width: 20,
                     ),
-                    Image.asset(
-                      'assets/liverpool.png',
-                      width: 400,
-                      height: 150,
-                      fit: BoxFit.cover,
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Fixtures()));
+                      },
+                      child: Stack(children: [
+                        Image.asset(
+                          'assets/liverpool.png',
+                          width: 400,
+                          height: 150,
+                          fit: BoxFit.cover,
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.all(20.0),
+                          child: Positioned(
+                              bottom: 50,
+                              child: Text(
+                                'Weekend Fixtures',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 27,
+                                    fontWeight: FontWeight.bold),
+                              )),
+                        )
+                      ]),
                     ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 
-import 'screen2.dart';
+import 'screens/screen2.dart';
 
 void main() {
   runApp(const MyApp());
@@ -137,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                         decoration: InputDecoration(
                                             border: OutlineInputBorder(),
                                             prefixIcon: Icon(
-                                              Icons.email,
+                                              Iconsax.message4,
                                               color: Colors.grey,
                                             ),
                                             hintText: 'Email',
@@ -156,7 +157,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                               color: Colors.grey,
                                             ),
                                             prefixIcon: Icon(
-                                              Icons.key,
+                                              Iconsax.key,
                                               color: Colors.grey,
                                             ),
                                             hintText: 'Password',

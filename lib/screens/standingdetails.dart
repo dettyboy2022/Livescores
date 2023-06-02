@@ -74,8 +74,10 @@ class _StandingDetailsState extends State<StandingDetails> {
               //   DataColumn(label: Text('Pts')),
               // ], rows: standingRows())
               DataTable(
+                  // dataRowColor: mater,
+                  decoration: BoxDecoration(color: Colors.green),
                   horizontalMargin: 10,
-                  dataRowMaxHeight: 70,
+                  dataRowMaxHeight: 75,
                   dataTextStyle:
                       const TextStyle(color: Colors.white, fontSize: 13),
                   columns: const [

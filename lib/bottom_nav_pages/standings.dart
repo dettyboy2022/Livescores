@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sports/standingdetails.dart';
+import 'package:sports/screens/standingdetails.dart';
 
 class Standings extends StatelessWidget {
   const Standings({super.key});
