@@ -170,25 +170,6 @@ class _MatchState extends State<Match> {
                   ],
                 ),
               ),
-              // Row(
-              //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              //   children: const [
-              //     Text(
-              //       'Other Match',
-              //       style: TextStyle(
-              //           color: Colors.white,
-              //           fontSize: 18,
-              //           fontWeight: FontWeight.w700),
-              //     ),
-              //     Text(
-              //       'See all',
-              //       style: TextStyle(
-              //           color: Colors.grey,
-              //           fontSize: 13,
-              //           fontWeight: FontWeight.w700),
-              //     )
-              //   ],
-              // )
             ],
           );
         });
@@ -205,9 +186,9 @@ class LineUp extends StatelessWidget {
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
+              children: [
                 Text(
                   'Formation',
                   style: TextStyle(
@@ -277,17 +258,62 @@ class H2H extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFF181829),
       body: Column(
-        children: const [
-          ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Helllo'),
-            subtitle: Text('Welcome'),
-            // trailing: Row(
-            //   children: const [
-            //     Icon(Icons.percent),
-            //     Icon(Icons.percent),
-            //   ],
-            // ),
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[600],
+            ),
+            child: ListTile(
+              leading: const Column(
+                children: [
+                  Text('14 JAN', style: TextStyle(color: Colors.white)),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Text('FT', style: TextStyle(color: Colors.white))
+                ],
+              ),
+              title: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    children: [
+                      Image.asset('assets/arsenal.png'),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      const Text(
+                        'Arsenal',
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
+                  const SizedBox(
+                    height: 15,
+                  ),
+                  Row(
+                    children: [
+                      Image.asset('assets/astonvilla.png'),
+                      const SizedBox(
+                        width: 15,
+                      ),
+                      const Text('Aston Villa',
+                          style: TextStyle(color: Colors.white))
+                    ],
+                  )
+                ],
+              ),
+              trailing: const Column(
+                children: [
+                  Text('3', style: TextStyle(color: Colors.white)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('1', style: TextStyle(color: Colors.white)),
+                ],
+              ),
+            ),
           )
         ],
       ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../bottom_nav_pages/home.dart';
 import '../bottom_nav_pages/explore.dart';
 import '../bottom_nav_pages/profile.dart';

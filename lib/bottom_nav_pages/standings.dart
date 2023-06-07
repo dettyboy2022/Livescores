@@ -67,6 +67,7 @@ class Standings extends StatelessWidget {
                     color: const Color((0xff222232)),
                   ),
                   child: DataTable(
+                      horizontalMargin: 5,
                       headingTextStyle: const TextStyle(color: Colors.white),
                       dataTextStyle: const TextStyle(color: Colors.white),
                       columns: const [
@@ -142,6 +143,7 @@ class Standings extends StatelessWidget {
                     color: const Color((0xff222232)),
                   ),
                   child: DataTable(
+                      horizontalMargin: 5,
                       headingTextStyle: const TextStyle(color: Colors.white),
                       dataTextStyle: const TextStyle(color: Colors.white),
                       columns: const [
@@ -157,7 +159,6 @@ class Standings extends StatelessWidget {
                           DataCell(Row(
                             children: [
                               Image.asset('assets/manchester.png'),
-                              // Text('la ligo')
                             ],
                           )),
                           const DataCell(Text('2')),

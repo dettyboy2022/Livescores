@@ -11,28 +11,44 @@ class Explore extends StatefulWidget {
 }
 
 class _ExploreState extends State<Explore> {
-  List content = [
-    {
-      'image': 'assets/lampard.png',
-      'text': 'Roumor Has it: Lampard`s position under threat,....'
-    },
-    {
-      'image': 'assets/news.png',
-      'text': 'Arteta sees "natural leader" Tierney as a future,'
-    },
-    {
-      'image': 'assets/saka.png',
-      'text': 'Athletic Bilbao to appoint Marcelino as coach until, ...'
-    },
-    {
-      'image': 'assets/lampard.png',
-      'text': 'Barcelona suffer too much late in games, says Ter Stegen'
-    },
-    {
-      'image': 'assets/bilbao.png',
-      'text': 'Barcelona suffer too much late in games, says Ter Stegen'
-    },
+  List image = [
+    'assets/lampard.png',
+    'assets/news.png',
+    'assets/saka.png',
+    'assets/lampard.png',
+    'assets/bilbao.png',
   ];
+
+  List content = [
+    'Roumor Has it: Lampard`s position under threat,....',
+    'Arteta sees "natural leader" Tierney as a future,',
+    'Athletic Bilbao to appoint Marcelino as coach until, ...',
+    'Barcelona suffer too much late in games, says Ter Stegen',
+    'Barcelona suffer too much late in games, says Ter Stegen'
+  ];
+
+  // List contents = [
+  //   {
+  //     'image': 'assets/lampard.png',
+  //     'text': 'Roumor Has it: Lampard`s position under threat,....'
+  //   },
+  //   {
+  //     'image': 'assets/news.png',
+  //     'text': 'Arteta sees "natural leader" Tierney as a future,'
+  //   },
+  //   {
+  //     'image': 'assets/saka.png',
+  //     'text': 'Athletic Bilbao to appoint Marcelino as coach until, ...'
+  //   },
+  //   {
+  //     'image': 'assets/lampard.png',
+  //     'text': 'Barcelona suffer too much late in games, says Ter Stegen'
+  //   },
+  //   {
+  //     'image': 'assets/bilbao.png',
+  //     'text': 'Barcelona suffer too much late in games, says Ter Stegen'
+  //   },
+  // ];
 
   List sports = [
     'assets/soccer.png',
@@ -48,7 +64,7 @@ class _ExploreState extends State<Explore> {
     return Scaffold(
       backgroundColor: const Color(0xFF181829),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 80, 10, 0),
+        padding: const EdgeInsets.fromLTRB(10, 80, 10, 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,13 +99,15 @@ class _ExploreState extends State<Explore> {
                             onTap: () {},
                             child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
+                                borderRadius: BorderRadius.circular(50),
                                 color: Colors.grey,
                               ),
                               margin: const EdgeInsets.only(left: 10),
-                              width: 150,
+                              width: 100,
                               height: 50,
-                              child: Image.asset(e),
+                              child: Image.asset(
+                                e,
+                              ),
                             ),
                           ))
                       .toList(),
@@ -100,59 +118,58 @@ class _ExploreState extends State<Explore> {
                   shrinkWrap: true,
                   itemCount: content.length,
                   itemBuilder: (context, index) {
-                    return Column(
-                      children: content
-                          .map((e) => ListTile(
-                                contentPadding: const EdgeInsets.all(10),
-                                leading: Image.asset(
-                                  e['image'],
-                                  width: 120,
-                                  fit: BoxFit.fitWidth,
-                                ),
-                                title: Text(e['text'],
-                                    style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600)),
-                                subtitle: const Text(
-                                  '20 APRIL 2023',
-                                  style: TextStyle(
-                                      wordSpacing: 5,
-                                      color: Colors.grey,
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 13),
-                                ),
-                                trailing: const Icon(
-                                  Iconsax.save_2,
-                                  color: Colors.grey,
-                                ),
-                              ))
-                          .toList(),
+                    return ListTile(
+                      contentPadding: const EdgeInsets.all(10),
+                      leading: Image.asset(
+                        image[index],
+                        width: 120,
+                        fit: BoxFit.fitWidth,
+                      ),
+                      title: Text(content[index],
+                          style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600)),
+                      subtitle: const Text(
+                        '20 APRIL 2023',
+                        style: TextStyle(
+                            wordSpacing: 5,
+                            color: Colors.grey,
+                            fontWeight: FontWeight.w600,
+                            fontSize: 13),
+                      ),
+                      trailing: const Icon(
+                        Iconsax.save_2,
+                        color: Colors.grey,
+                      ),
                     );
-                    // return ListTile(
-                    //   contentPadding: const EdgeInsets.all(10),
-                    //   leading: Image.asset(
-                    //     images[index],
-                    //     width: 120,
-                    //     fit: BoxFit.fitWidth,
-                    //   ),
-                    //   title: Text(news[index],
-                    //       style: const TextStyle(
-                    //           color: Colors.white,
-                    //           fontSize: 16,
-                    //           fontWeight: FontWeight.w600)),
-                    //   subtitle: const Text(
-                    //     '20 APRIL 2023',
-                    //     style: TextStyle(
-                    //         wordSpacing: 5,
-                    //         color: Colors.grey,
-                    //         fontWeight: FontWeight.w600,
-                    //         fontSize: 13),
-                    //   ),
-                    //   trailing: const Icon(
-                    //     Iconsax.save_2,
-                    //     color: Colors.grey,
-                    //   ),
+                    // return Column(
+                    //   children: contents
+                    //       .map((e) => ListTile(
+                    //             contentPadding: const EdgeInsets.all(10),
+                    //             leading: Image.asset(
+                    //               e['image'],
+                    //               width: 120,
+                    //               fit: BoxFit.fitWidth,
+                    //             ),
+                    //             title: Text(e['text'],
+                    //                 style: const TextStyle(
+                    //                     color: Colors.white,
+                    //                     fontSize: 16,
+                    //                     fontWeight: FontWeight.w600)),
+                    //             subtitle: const Text(
+                    //               '20 APRIL 2023',
+                    //               style: TextStyle(
+                    //                   color: Colors.grey,
+                    //                   fontWeight: FontWeight.w600,
+                    //                   fontSize: 13),
+                    //             ),
+                    //             trailing: const Icon(
+                    //               Iconsax.save_2,
+                    //               color: Colors.grey,
+                    //             ),
+                    //           ))
+                    //       .toList(),
                     // );
                   }),
               const Text(

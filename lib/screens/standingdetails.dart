@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sports/models/standing_model.dart';
 
 class StandingDetails extends StatefulWidget {
   const StandingDetails({super.key});
@@ -65,21 +66,12 @@ class _StandingDetailsState extends State<StandingDetails> {
                   )
                 ],
               ),
-              // DataTable(columns: const [
-              //   DataColumn(label: Text('Team')),
-              //   DataColumn(label: Text('D')),
-              //   DataColumn(label: Text('L')),
-              //   DataColumn(label: Text('Ga')),
-              //   DataColumn(label: Text('Gd')),
-              //   DataColumn(label: Text('Pts')),
-              // ], rows: standingRows())
               DataTable(
-                  // dataRowColor: mater,
-                  decoration: BoxDecoration(color: Colors.green),
-                  horizontalMargin: 10,
                   dataRowMaxHeight: 75,
-                  dataTextStyle:
-                      const TextStyle(color: Colors.white, fontSize: 13),
+                  dividerThickness: 10,
+                  headingTextStyle: const TextStyle(color: Colors.white),
+                  dataTextStyle: const TextStyle(color: Colors.white),
+                  horizontalMargin: 5,
                   columns: const [
                     DataColumn(label: Text('Team')),
                     DataColumn(label: Text('D')),
@@ -88,106 +80,24 @@ class _StandingDetailsState extends State<StandingDetails> {
                     DataColumn(label: Text('Gd')),
                     DataColumn(label: Text('Pts')),
                   ],
-                  rows: [
-                    DataRow(
-                        color: const MaterialStatePropertyAll(
-                            Color.fromARGB(255, 101, 101, 170)),
-                        cells: [
-                          DataCell(Image.asset('assets/Atletico.png')),
-                          const DataCell(Text('2')),
-                          const DataCell(Text('1')),
-                          const DataCell(Text('6')),
-                          const DataCell(Text('23')),
-                          const DataCell(Text('38')),
-                        ]),
-                    DataRow(
-                        color: const MaterialStatePropertyAll(
-                            Color.fromARGB(255, 101, 101, 170)),
-                        cells: [
-                          DataCell(Image.asset('assets/barcelona.png')),
-                          const DataCell(Text('4')),
-                          const DataCell(Text('3')),
-                          const DataCell(Text('7')),
-                          const DataCell(Text('15')),
-                          const DataCell(Text('37')),
-                        ]),
-                    DataRow(
-                        color: const MaterialStatePropertyAll(
-                            Color.fromARGB(255, 101, 101, 170)),
-                        cells: [
-                          DataCell(Image.asset('assets/realmadrid.png')),
-                          const DataCell(Text('4')),
-                          const DataCell(Text('4')),
-                          const DataCell(Text('9')),
-                          const DataCell(Text('20')),
-                          const DataCell(Text('34')),
-                        ]),
-                    DataRow(
-                        color: const MaterialStatePropertyAll(
-                            Color.fromARGB(255, 101, 101, 170)),
-                        cells: [
-                          DataCell(Image.asset('assets/sevilla.png')),
-                          const DataCell(Text('8')),
-                          const DataCell(Text('2')),
-                          const DataCell(Text('10')),
-                          const DataCell(Text('16')),
-                          const DataCell(Text('32')),
-                        ]),
-                    DataRow(
-                        color: MaterialStatePropertyAll(Colors.red.shade600),
-                        cells: [
-                          DataCell(Image.asset('assets/juventus.png')),
-                          const DataCell(Text('8')),
-                          const DataCell(Text('2')),
-                          const DataCell(Text('10')),
-                          const DataCell(Text('16')),
-                          const DataCell(Text('32')),
-                        ]),
-                    DataRow(
-                        color: MaterialStatePropertyAll(Colors.red.shade600),
-                        cells: [
-                          DataCell(Image.asset('assets/chelsea.png')),
-                          const DataCell(Text('8')),
-                          const DataCell(Text('2')),
-                          const DataCell(Text('10')),
-                          const DataCell(Text('16')),
-                          const DataCell(Text('32')),
-                        ]),
-                    DataRow(
-                        color: MaterialStatePropertyAll(Colors.red.shade600),
-                        cells: [
-                          DataCell(Image.asset('assets/chelsea.png')),
-                          const DataCell(Text('8')),
-                          const DataCell(Text('2')),
-                          const DataCell(Text('10')),
-                          const DataCell(Text('16')),
-                          const DataCell(Text('32')),
-                        ]),
-                    DataRow(
-                        color: MaterialStatePropertyAll(Colors.red.shade600),
-                        cells: [
-                          DataCell(Image.asset('assets/chelsea.png')),
-                          const DataCell(Text('8')),
-                          const DataCell(Text('2')),
-                          const DataCell(Text('10')),
-                          const DataCell(Text('16')),
-                          const DataCell(Text('32')),
-                        ]),
-                    DataRow(
-                        color: MaterialStatePropertyAll(Colors.red.shade600),
-                        cells: [
-                          DataCell(Image.asset('assets/chelsea.png')),
-                          const DataCell(Text('8')),
-                          const DataCell(Text('2')),
-                          const DataCell(Text('10')),
-                          const DataCell(Text('16')),
-                          const DataCell(Text('32')),
-                        ]),
-                  ]),
+                  rows: standingRows())
             ],
           ),
         ),
       ),
     );
+  }
+
+  List<DataRow> standingRows() {
+    return spanish
+        .map((e) => DataRow(cells: [
+              DataCell(Image.asset(e.image)),
+              DataCell(Text(e.draw.toString())),
+              DataCell(Text(e.lose.toString())),
+              DataCell(Text(e.against.toString())),
+              DataCell(Text(e.difference.toString())),
+              DataCell(Text(e.points.toString())),
+            ]))
+        .toList();
   }
 }
