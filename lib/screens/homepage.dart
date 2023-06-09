@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sports/screens/screen2.dart';
 
-
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
 

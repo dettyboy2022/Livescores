@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:sports/screens/fixtures.dart';
 import 'package:sports/screens/table.dart';
@@ -27,29 +28,6 @@ class _ExploreState extends State<Explore> {
     'Barcelona suffer too much late in games, says Ter Stegen'
   ];
 
-  // List contents = [
-  //   {
-  //     'image': 'assets/lampard.png',
-  //     'text': 'Roumor Has it: Lampard`s position under threat,....'
-  //   },
-  //   {
-  //     'image': 'assets/news.png',
-  //     'text': 'Arteta sees "natural leader" Tierney as a future,'
-  //   },
-  //   {
-  //     'image': 'assets/saka.png',
-  //     'text': 'Athletic Bilbao to appoint Marcelino as coach until, ...'
-  //   },
-  //   {
-  //     'image': 'assets/lampard.png',
-  //     'text': 'Barcelona suffer too much late in games, says Ter Stegen'
-  //   },
-  //   {
-  //     'image': 'assets/bilbao.png',
-  //     'text': 'Barcelona suffer too much late in games, says Ter Stegen'
-  //   },
-  // ];
-
   List sports = [
     'assets/soccer.png',
     'assets/football.png',
@@ -59,8 +37,11 @@ class _ExploreState extends State<Explore> {
     'assets/tennis.png'
   ];
 
+  var currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    double displayWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFF181829),
       body: Padding(
@@ -88,32 +69,98 @@ class _ExploreState extends State<Explore> {
                       color: Colors.grey,
                     )),
               ),
-              const SizedBox(
-                height: 20,
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: Row(
-                  children: sports
-                      .map((e) => GestureDetector(
-                            onTap: () {},
-                            child: Container(
-                              decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(50),
-                                color: Colors.grey,
-                              ),
-                              margin: const EdgeInsets.only(left: 10),
-                              width: 100,
-                              height: 50,
-                              child: Image.asset(
-                                e,
+              Container(
+                margin: EdgeInsets.all(displayWidth * .05),
+                height: displayWidth * .120,
+                child: ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: 6,
+                    scrollDirection: Axis.horizontal,
+                    padding: EdgeInsets.zero,
+                    itemBuilder: (context, index) => InkWell(
+                          onTap: () {
+                            setState(() {
+                              currentIndex = index;
+                              HapticFeedback.lightImpact();
+                            });
+                          },
+                          child: Stack(children: [
+                            AnimatedContainer(
+                              duration: const Duration(seconds: 1),
+                              curve: Curves.fastLinearToSlowEaseIn,
+                              width: index == currentIndex
+                                  ? displayWidth * .32
+                                  : displayWidth * .18,
+                              alignment: Alignment.center,
+                              child: AnimatedContainer(
+                                duration: const Duration(seconds: 1),
+                                curve: Curves.fastLinearToSlowEaseIn,
+                                height: index == currentIndex
+                                    ? displayWidth * .12
+                                    : 0,
+                                width: index == currentIndex
+                                    ? displayWidth * .32
+                                    : 0,
+                                decoration: BoxDecoration(
+                                    color: index == currentIndex
+                                        ? const Color(0xffF4A58A)
+                                        : Colors.transparent,
+                                    borderRadius: BorderRadius.circular(50)),
                               ),
                             ),
-                          ))
-                      .toList(),
-                ),
+                            AnimatedContainer(
+                              duration: const Duration(seconds: 1),
+                              curve: Curves.fastLinearToSlowEaseIn,
+                              width: index == currentIndex
+                                  ? displayWidth * .31
+                                  : displayWidth * .18,
+                              alignment: Alignment.center,
+                              child: Stack(
+                                children: [
+                                  Row(
+                                    children: [
+                                      AnimatedContainer(
+                                        duration: const Duration(seconds: 1),
+                                        curve: Curves.fastLinearToSlowEaseIn,
+                                        width: index == currentIndex
+                                            ? displayWidth * .13
+                                            : 0,
+                                      ),
+                                      AnimatedOpacity(
+                                        opacity: index == currentIndex ? 1 : 0,
+                                        duration: const Duration(seconds: 1),
+                                        curve: Curves.fastLinearToSlowEaseIn,
+                                        child: Text(
+                                          index == currentIndex
+                                              ? listOfString[index]
+                                              : '',
+                                          style: const TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  Row(
+                                    children: [
+                                      AnimatedContainer(
+                                        duration: const Duration(seconds: 1),
+                                        curve: Curves.fastLinearToSlowEaseIn,
+                                        width: index == currentIndex
+                                            ? displayWidth * .03
+                                            : 20,
+                                      ),
+                                      Image.asset(listOfImages[index])
+                                    ],
+                                  )
+                                ],
+                              ),
+                            )
+                          ]),
+                        )),
               ),
               ListView.builder(
+                  padding: EdgeInsets.zero,
                   primary: false,
                   shrinkWrap: true,
                   itemCount: content.length,
@@ -143,34 +190,6 @@ class _ExploreState extends State<Explore> {
                         color: Colors.grey,
                       ),
                     );
-                    // return Column(
-                    //   children: contents
-                    //       .map((e) => ListTile(
-                    //             contentPadding: const EdgeInsets.all(10),
-                    //             leading: Image.asset(
-                    //               e['image'],
-                    //               width: 120,
-                    //               fit: BoxFit.fitWidth,
-                    //             ),
-                    //             title: Text(e['text'],
-                    //                 style: const TextStyle(
-                    //                     color: Colors.white,
-                    //                     fontSize: 16,
-                    //                     fontWeight: FontWeight.w600)),
-                    //             subtitle: const Text(
-                    //               '20 APRIL 2023',
-                    //               style: TextStyle(
-                    //                   color: Colors.grey,
-                    //                   fontWeight: FontWeight.w600,
-                    //                   fontSize: 13),
-                    //             ),
-                    //             trailing: const Icon(
-                    //               Iconsax.save_2,
-                    //               color: Colors.grey,
-                    //             ),
-                    //           ))
-                    //       .toList(),
-                    // );
                   }),
               const Text(
                 'Trending News',
@@ -254,4 +273,22 @@ class _ExploreState extends State<Explore> {
       ),
     );
   }
+
+  List<String> listOfString = [
+    'Soccer',
+    'Basketball',
+    'Football',
+    'Volley',
+    'Tennis',
+    'Table',
+  ];
+
+  List<String> listOfImages = [
+    'assets/soccer.png',
+    'assets/basketball.png',
+    'assets/football.png',
+    'assets/volly.png',
+    'assets/tennis.png',
+    'assets/pingpong.png',
+  ];
 }
