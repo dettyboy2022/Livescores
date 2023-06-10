@@ -20,6 +20,8 @@ class _HomeState extends State<Home> {
     {'image': 'assets/badminton.png', 'text': 'Badminton'}
   ];
 
+  Color _containerColor = const Color(0xFF222232);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -73,24 +75,31 @@ class _HomeState extends State<Home> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: sports
-                      .map((e) => Container(
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                              color: const Color(0xffF4A58A),
+                      .map((e) => GestureDetector(
+                            onTap: () {
+                              setState(() {
+                                _containerColor = Colors.red;
+                              });
+                            },
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10),
+                                  // color: const Color(0xffF4A58A),
+                                  color: _containerColor),
+                              margin: const EdgeInsets.symmetric(horizontal: 8),
+                              padding: const EdgeInsets.all(20),
+                              child: Column(children: [
+                                Image.asset(e['image']),
+                                const SizedBox(
+                                  height: 10,
+                                ),
+                                Text(
+                                  e['text'],
+                                  style: const TextStyle(
+                                      fontSize: 15, color: Colors.white),
+                                )
+                              ]),
                             ),
-                            margin: const EdgeInsets.symmetric(horizontal: 8),
-                            padding: const EdgeInsets.all(20),
-                            child: Column(children: [
-                              Image.asset(e['image']),
-                              const SizedBox(
-                                height: 10,
-                              ),
-                              Text(
-                                e['text'],
-                                style: const TextStyle(
-                                    fontSize: 15, color: Colors.white),
-                              )
-                            ]),
                           ))
                       .toList(),
                 ),

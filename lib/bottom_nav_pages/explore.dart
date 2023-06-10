@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:sports/screens/fixtures.dart';
 import 'package:sports/screens/table.dart';
+import 'package:sports/utils/explore_list.dart';
+import 'package:sports/utils/explore_swipe.dart';
 
 class Explore extends StatefulWidget {
   const Explore({super.key});
@@ -12,40 +12,12 @@ class Explore extends StatefulWidget {
 }
 
 class _ExploreState extends State<Explore> {
-  List image = [
-    'assets/lampard.png',
-    'assets/news.png',
-    'assets/saka.png',
-    'assets/lampard.png',
-    'assets/bilbao.png',
-  ];
-
-  List content = [
-    'Roumor Has it: Lampard`s position under threat,....',
-    'Arteta sees "natural leader" Tierney as a future,',
-    'Athletic Bilbao to appoint Marcelino as coach until, ...',
-    'Barcelona suffer too much late in games, says Ter Stegen',
-    'Barcelona suffer too much late in games, says Ter Stegen'
-  ];
-
-  List sports = [
-    'assets/soccer.png',
-    'assets/football.png',
-    'assets/pingpong.png',
-    'assets/volly.png',
-    'assets/basketball.png',
-    'assets/tennis.png'
-  ];
-
-  var currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    double displayWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFF181829),
       body: Padding(
-        padding: const EdgeInsets.fromLTRB(10, 80, 10, 20),
+        padding: const EdgeInsets.fromLTRB(10, 70, 10, 20),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,128 +41,8 @@ class _ExploreState extends State<Explore> {
                       color: Colors.grey,
                     )),
               ),
-              Container(
-                margin: EdgeInsets.all(displayWidth * .05),
-                height: displayWidth * .120,
-                child: ListView.builder(
-                    shrinkWrap: true,
-                    itemCount: 6,
-                    scrollDirection: Axis.horizontal,
-                    padding: EdgeInsets.zero,
-                    itemBuilder: (context, index) => InkWell(
-                          onTap: () {
-                            setState(() {
-                              currentIndex = index;
-                              HapticFeedback.lightImpact();
-                            });
-                          },
-                          child: Stack(children: [
-                            AnimatedContainer(
-                              duration: const Duration(seconds: 1),
-                              curve: Curves.fastLinearToSlowEaseIn,
-                              width: index == currentIndex
-                                  ? displayWidth * .32
-                                  : displayWidth * .18,
-                              alignment: Alignment.center,
-                              child: AnimatedContainer(
-                                duration: const Duration(seconds: 1),
-                                curve: Curves.fastLinearToSlowEaseIn,
-                                height: index == currentIndex
-                                    ? displayWidth * .12
-                                    : 0,
-                                width: index == currentIndex
-                                    ? displayWidth * .32
-                                    : 0,
-                                decoration: BoxDecoration(
-                                    color: index == currentIndex
-                                        ? const Color(0xffF4A58A)
-                                        : Colors.transparent,
-                                    borderRadius: BorderRadius.circular(50)),
-                              ),
-                            ),
-                            AnimatedContainer(
-                              duration: const Duration(seconds: 1),
-                              curve: Curves.fastLinearToSlowEaseIn,
-                              width: index == currentIndex
-                                  ? displayWidth * .31
-                                  : displayWidth * .18,
-                              alignment: Alignment.center,
-                              child: Stack(
-                                children: [
-                                  Row(
-                                    children: [
-                                      AnimatedContainer(
-                                        duration: const Duration(seconds: 1),
-                                        curve: Curves.fastLinearToSlowEaseIn,
-                                        width: index == currentIndex
-                                            ? displayWidth * .13
-                                            : 0,
-                                      ),
-                                      AnimatedOpacity(
-                                        opacity: index == currentIndex ? 1 : 0,
-                                        duration: const Duration(seconds: 1),
-                                        curve: Curves.fastLinearToSlowEaseIn,
-                                        child: Text(
-                                          index == currentIndex
-                                              ? listOfString[index]
-                                              : '',
-                                          style: const TextStyle(
-                                              color: Colors.white,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                      )
-                                    ],
-                                  ),
-                                  Row(
-                                    children: [
-                                      AnimatedContainer(
-                                        duration: const Duration(seconds: 1),
-                                        curve: Curves.fastLinearToSlowEaseIn,
-                                        width: index == currentIndex
-                                            ? displayWidth * .03
-                                            : 20,
-                                      ),
-                                      Image.asset(listOfImages[index])
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          ]),
-                        )),
-              ),
-              ListView.builder(
-                  padding: EdgeInsets.zero,
-                  primary: false,
-                  shrinkWrap: true,
-                  itemCount: content.length,
-                  itemBuilder: (context, index) {
-                    return ListTile(
-                      contentPadding: const EdgeInsets.all(10),
-                      leading: Image.asset(
-                        image[index],
-                        width: 120,
-                        fit: BoxFit.fitWidth,
-                      ),
-                      title: Text(content[index],
-                          style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600)),
-                      subtitle: const Text(
-                        '20 APRIL 2023',
-                        style: TextStyle(
-                            wordSpacing: 5,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.w600,
-                            fontSize: 13),
-                      ),
-                      trailing: const Icon(
-                        Iconsax.save_2,
-                        color: Colors.grey,
-                      ),
-                    );
-                  }),
+              const ExploreSwipe(),
+              const ExploreList(),
               const Text(
                 'Trending News',
                 style: TextStyle(
@@ -273,22 +125,4 @@ class _ExploreState extends State<Explore> {
       ),
     );
   }
-
-  List<String> listOfString = [
-    'Soccer',
-    'Basketball',
-    'Football',
-    'Volley',
-    'Tennis',
-    'Table',
-  ];
-
-  List<String> listOfImages = [
-    'assets/soccer.png',
-    'assets/basketball.png',
-    'assets/football.png',
-    'assets/volly.png',
-    'assets/tennis.png',
-    'assets/pingpong.png',
-  ];
 }

@@ -103,6 +103,18 @@ flutter:
     - assets/share.png
     - assets/save.png
     - assets/liga.png
+    - assets/api.png
+    - assets/captain.png
+    - assets/hastag.png
+    - assets/newspapper.png
+    - assets/stadium.png
+    - assets/yellowcard.png
+    - assets/Dortmund.png
+    - assets/everton.png
+    - assets/leicester.png
+    - assets/RBLeipzig.png
+    - assets/Wolfsburg.png
+    - assets/Hannover96.png
   
 
   # An image asset can refer to one or more resolution-specific "variants", see

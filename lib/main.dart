@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sports/screens/homepage.dart';
 
-void main() {
+void main() { 
   runApp(const MyApp());
 }
 
